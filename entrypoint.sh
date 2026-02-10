@@ -5,8 +5,8 @@ set -e
 if [ -f "manage.py" ]; then
 
     # migrations
-    # python "manage.py" makemigrations
-    # python "manage.py" migrate
+    python "manage.py" makemigrations
+    python "manage.py" migrate
 
     # superuser
     # python "manage.py" createsuperuser --noinput
