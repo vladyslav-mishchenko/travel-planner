@@ -8,15 +8,11 @@ from .views import (
 app_name = "apidocs"
 
 urlpatterns = [
-    path("docs/schema/", AdminOnlySpectacularAPIView.as_view(), name="schema"),
+    path("schema/", AdminOnlySpectacularAPIView.as_view(), name="schema"),
     path(
-        "docs/swagger/",
+        "swagger/",
         AdminOnlySwaggerView.as_view(url_name="apidocs:schema"),
-        name="swagger-ui",
+        name="swagger",
     ),
-    path(
-        "docs/redoc/",
-        AdminOnlyRedocView.as_view(url_name="apidocs:schema"),
-        name="redoc",
-    ),
+    path("redoc/", AdminOnlyRedocView.as_view(url_name="apidocs:schema"), name="redoc"),
 ]

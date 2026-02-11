@@ -2,9 +2,12 @@
 Django==5.2.2
 
 # REST API
-djangorestframework==3.16.1
-drf-spectacular==0.29.0
-drf-spectacular-sidecar==2026.1.1
+djangorestframework
+drf-spectacular
+drf-spectacular-sidecar
+
+# JWT Authentication
+djangorestframework-simplejwt
 
 # Environment
 django-environ==0.12.0
