@@ -36,5 +36,10 @@ urlpatterns += [
     path("api/token/refresh/", TokenRefreshView.as_view(), name="token_refresh"),
 ]
 
+# api v1
+urlpatterns += [
+    path("api/v1/", include("apps.places.urls")),
+]
+
 # apidocs
 urlpatterns += [path("api/docs/", include("apps.apidocs.urls"))]

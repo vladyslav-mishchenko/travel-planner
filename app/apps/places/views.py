@@ -1,0 +1,15 @@
+# views.py
+from rest_framework import generics
+from .models import Place
+from .serializers import PlaceSerializer
+
+
+class PlaceListCreateView(generics.ListCreateAPIView):
+    queryset = Place.objects.all()
+    serializer_class = PlaceSerializer
+
+
+class PlaceDetailView(generics.RetrieveUpdateDestroyAPIView):
+    queryset = Place.objects.all()
+    serializer_class = PlaceSerializer
+    lookup_field = "id"
