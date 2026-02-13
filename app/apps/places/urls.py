@@ -1,9 +1,10 @@
-from django.urls import path
-from .views import PlaceListCreateView, PlaceDetailView
+from rest_framework.routers import DefaultRouter
+from django.urls import path, include
+from .views import PlaceViewSet
 
-app_name = "places"
+router = DefaultRouter()
+router.register(r"places", PlaceViewSet, basename="place")
 
 urlpatterns = [
-    path("places/", PlaceListCreateView.as_view(), name="place-list-create"),
-    path("places/<uuid:id>/", PlaceDetailView.as_view(), name="place-detail"),
+    path("", include(router.urls)),
 ]

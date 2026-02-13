@@ -1,15 +1,10 @@
-# views.py
-from rest_framework import generics
+from rest_framework import viewsets
 from .models import Place
 from .serializers import PlaceSerializer
+from .permissions import IsSuperUserOrReadOnly
 
 
-class PlaceListCreateView(generics.ListCreateAPIView):
+class PlaceViewSet(viewsets.ModelViewSet):
     queryset = Place.objects.all()
     serializer_class = PlaceSerializer
-
-
-class PlaceDetailView(generics.RetrieveUpdateDestroyAPIView):
-    queryset = Place.objects.all()
-    serializer_class = PlaceSerializer
-    lookup_field = "id"
+    permission_classes = [IsSuperUserOrReadOnly]
