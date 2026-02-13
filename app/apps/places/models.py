@@ -13,9 +13,10 @@ class Place(models.Model):
         editable=False,
         help_text="Unique identifier",
     )
-    name = models.CharField(
+    title = models.CharField(
         max_length=255,
-        help_text="Name of the place",
+        default="Untitled Place",
+        help_text="Title of the place",
     )
     description = models.TextField(
         blank=True,
@@ -28,4 +29,4 @@ class Place(models.Model):
         verbose_name_plural = "Places"
 
     def __str__(self):
-        return self.name
+        return self.title

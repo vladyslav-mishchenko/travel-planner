@@ -7,11 +7,11 @@ class PlaceSerializer(serializers.ModelSerializer):
         model = Place
         fields = [
             "id",
-            "name",
+            "title",
             "description",
         ]
 
-    def validate_name(self, value):
+    def validate_title(self, value):
         if not value.strip():
-            raise serializers.ValidationError("Name cannot be empty")
+            raise serializers.ValidationError("Title cannot be empty")
         return value
