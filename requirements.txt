@@ -3,6 +3,7 @@ Django==5.2.2
 
 # REST API
 djangorestframework
+drf-nested-routers
 drf-spectacular
 drf-spectacular-sidecar
 

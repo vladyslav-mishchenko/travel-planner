@@ -45,6 +45,8 @@ INSTALLED_APPS = [
     "apps.apidocs",
     "apps.users",
     "apps.places",
+    "apps.travel_projects",
+    "apps.travel_places",
 ]
 
 MIDDLEWARE = [
@@ -154,4 +156,15 @@ SPECTACULAR_SETTINGS = {
     "SWAGGER_UI_DIST": "SIDECAR",
     "SWAGGER_UI_FAVICON_HREF": "SIDECAR",
     "REDOC_DIST": "SIDECAR",
+}
+
+SWAGGER_SETTINGS = {
+    "SECURITY_DEFINITIONS": {
+        "Bearer": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header",
+            "description": 'JWT Authorization header using the Bearer scheme. Example: "Bearer <token>"',
+        }
+    },
 }

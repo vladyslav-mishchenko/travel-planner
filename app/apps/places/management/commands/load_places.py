@@ -1,3 +1,27 @@
+"""
+load_places.py
+
+Django management command to fetch places data from an external API
+and load it into the database.
+
+This command retrieves a list of data from the Art Institute of Chicago API,
+fetches detailed information for each item, and creates or updates
+Place records in the database with the retrieved data.
+
+Usage:
+    python manage.py load_places
+
+Behavior:
+    - Fetches a list of data from the external API.
+    - Iterates through each item to get detailed data.
+    - Updates existing Place records or creates new ones.
+    - Logs success and failure messages to the console.
+
+Note:
+    - Requests failures are logged but do not stop processing.
+    - Functionality is under active development and may change.
+"""
+
 from django.core.management.base import BaseCommand
 import requests
 
@@ -33,7 +57,7 @@ class Command(BaseCommand):
             place_data = response_place_data["data"]
 
             place, created = Place.objects.update_or_create(
-                title=place_data["title"],
+                name=place_data["title"],
                 defaults={
                     "description": place_data["description"],
                 },

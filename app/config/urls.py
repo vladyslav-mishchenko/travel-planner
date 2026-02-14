@@ -39,6 +39,8 @@ urlpatterns += [
 # api v1
 urlpatterns += [
     path("api/v1/", include("apps.places.urls")),
+    path("api/v1/", include("apps.travel_projects.urls")),
+    path("api/v1/", include("apps.travel_places.urls")),
 ]
 
 # apidocs

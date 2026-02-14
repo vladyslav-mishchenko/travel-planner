@@ -5,13 +5,14 @@ from .models import Place
 class PlaceSerializer(serializers.ModelSerializer):
     class Meta:
         model = Place
-        fields = [
+        fields = (
             "id",
-            "title",
+            "name",
             "description",
-        ]
+        )
+        read_only_fields = ("id",)
 
-    def validate_title(self, value):
+    def validate_name(self, value):
         if not value.strip():
-            raise serializers.ValidationError("Title cannot be empty")
+            raise serializers.ValidationError("Name cannot be empty")
         return value

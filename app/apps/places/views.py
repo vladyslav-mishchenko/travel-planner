@@ -8,3 +8,4 @@ class PlaceViewSet(viewsets.ModelViewSet):
     queryset = Place.objects.all()
     serializer_class = PlaceSerializer
     permission_classes = [IsSuperUserOrReadOnly]
+    lookup_field = "id"
