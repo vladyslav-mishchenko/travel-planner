@@ -27,6 +27,11 @@ class TravelPlace(models.Model):
         on_delete=models.PROTECT,
     )
 
+    is_visited = models.BooleanField(
+        default=False,
+        help_text="The place has been visited",
+    )
+
     place = models.ForeignKey(
         Place,
         on_delete=models.CASCADE,
