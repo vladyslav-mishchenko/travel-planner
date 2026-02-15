@@ -24,7 +24,8 @@ class TravelPlace(models.Model):
 
     travel_project = models.ForeignKey(
         TravelProject,
-        on_delete=models.PROTECT,
+        on_delete=models.CASCADE,
+        related_name="places",
     )
 
     is_visited = models.BooleanField(
