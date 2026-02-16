@@ -2,8 +2,8 @@
 ## Install for local development
 
 Ensure you have the following installed
-git --version
-docker --version
+- git --version
+- docker --version
 
 1. clone repository
 2. setting .env
@@ -32,7 +32,7 @@ https://github.com/vladyslav-mishchenko/travel-planner.git
    ./down.sh - stop project
 
 ## Start project
-1. For the first start, uncomment the line to create a superuser 
+1. For the first start, uncomment the line to create a superuser in entrypoint.sh
    python "manage.py" createsuperuser --noinput
 2. After creating the superuser, comment the line again and rebuild the Docker image
 
