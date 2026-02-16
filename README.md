@@ -1,42 +1,71 @@
-# Trevel Planner API
-## Install for local development
+# Travel Planner API
 
-Ensure you have the following installed
-- git --version
-- docker --version
+## Install for Local Development
 
-1. clone repository
-2. setting .env
-3. build Docker image
-4. start project
-5. development
+Ensure the following are installed:
 
-## Clone repository
-https://github.com/vladyslav-mishchenko/travel-planner.git
+- Git (git --version)  
+- Docker (docker --version)  
 
-## Setting .env
-1. mv .env.example .env
-2. generate Django SECRET_KEY
-3. add superuser, email, password
+Steps to set up the project:
 
-## Build Docker image
-1. Make sure the scripts are executable
-   build.sh up.sh down.sh must be executable
-   if not:
-   chmod +x build.sh
-   chmod +x up.sh
-   chmod +x down.sh
-2. cd scripts
-   ./build.sh - build image
-   ./up.sh - start project
-   ./down.sh - stop project
+1. Clone the repository  
+2. Configure the .env file  
+3. Build the Docker image  
+4. Start the project  
+5. Access development tools
 
-## Start project
-1. For the first start, uncomment the line to create a superuser in entrypoint.sh
-   python "manage.py" createsuperuser --noinput
+---
+
+## Clone Repository
+
+Run the following commands:
+
+git clone https://github.com/vladyslav-mishchenko/travel-planner.git  
+cd travel-planner
+
+---
+
+## Configure .env
+
+Set up the environment variables:
+
+mv .env.example .env
+
+- Generate a Django SECRET_KEY  
+- Add superuser credentials: username, email, password
+
+---
+
+## Build Docker Image
+
+1. Make sure the scripts are executable:
+
+chmod +x scripts/build.sh  
+chmod +x scripts/up.sh  
+chmod +x scripts/down.sh
+
+2. Build and run the project:
+
+cd scripts  
+./build.sh    # build Docker image  
+./up.sh       # start project  
+./down.sh     # stop project
+
+---
+
+## Start Project
+
+1. For the first start, uncomment the line in entrypoint.sh to create a superuser:
+
+python manage.py createsuperuser --noinput
+
 2. After creating the superuser, comment the line again and rebuild the Docker image
 
+---
+
 ## Development
-1. Access Swagger docs after logging in to the admin dashboard
-- login to admin dashboard first
-- http://localhost:8000/api/docs/swagger/
+
+Access the Swagger documentation after logging in to the admin dashboard:
+
+http://localhost:8000/api/docs/swagger/
