@@ -13,7 +13,8 @@ Steps to set up the project:
 2. Configure the .env file  
 3. Build the Docker image  
 4. Start the project  
-5. Access development tools
+5. Load data from the external API  
+6. Access development tools  
 
 ---
 
@@ -33,7 +34,7 @@ Set up the environment variables:
 mv .env.example .env
 
 - Generate a Django SECRET_KEY  
-- Add superuser credentials: username, email, password
+- Add superuser credentials: username, email, password  
 
 ---
 
@@ -43,14 +44,14 @@ mv .env.example .env
 
 chmod +x scripts/build.sh  
 chmod +x scripts/up.sh  
-chmod +x scripts/down.sh
+chmod +x scripts/down.sh  
 
 2. Build and run the project:
 
 cd scripts  
 ./build.sh    # build Docker image  
 ./up.sh       # start project  
-./down.sh     # stop project
+./down.sh     # stop project  
 
 ---
 
@@ -58,9 +59,27 @@ cd scripts
 
 1. For the first start, uncomment the line in entrypoint.sh to create a superuser:
 
-python manage.py createsuperuser --noinput
+python manage.py createsuperuser --noinput  
 
-2. After creating the superuser, comment the line again and rebuild the Docker image
+2. After creating the superuser, comment the line again and rebuild the Docker image  
+
+---
+
+## Load Data from External API
+
+Run the custom Django command inside the Docker container:
+
+1. List running containers:
+
+docker container ls  
+
+2. Enter the container:
+
+docker exec -it container-id bash  
+
+3. Run the data loading command:
+
+python manage.py load_places  
 
 ---
 
